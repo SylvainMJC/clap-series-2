@@ -12,6 +12,26 @@
 
 function isAFlush(cards) {
   // CODE HERE
+
+  let d = 0;
+  let c = 0;
+  let h = 0;
+  let s = 0;
+  for(let i=0; i < cards.length; i++){
+    switch(cards[i].charAt(cards.length - 1)){
+      case('s'): s++;
+      case('h'): h++;
+      case('c'): c++;
+      case('d'): d++;
+    }
+  }
+  if(s>4 || h>4 || c>4 || d>4){
+    return true;
+  }
+  else{
+    return false;
+  }
+
 }
 
 export { isAFlush };

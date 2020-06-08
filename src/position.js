@@ -12,6 +12,8 @@ const SOLAR_SYSTEM =
 
 function position(planet) {
   // CODE HERE
+  return SOLAR_SYSTEM.indexOf(planet);
+
 }
 
 export { position };
