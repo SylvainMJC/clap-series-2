@@ -18,14 +18,25 @@ function isAFlush(cards) {
   let h = 0;
   let s = 0;
   for(let i=0; i < cards.length; i++){
-    switch(cards[i].charAt(cards.length - 1)){
-      case('s'): s++;
-      case('h'): h++;
-      case('c'): c++;
-      case('d'): d++;
+    switch(cards[i].charAt(cards[i].length - 1)){
+      case('s'):
+        s++;
+        break;
+      case('h'):
+        h++;
+        break;
+      case('c'):
+        c++;
+        break;
+      case('d'):
+        d++;
+        break;
+      default: console.log('error');
     }
+    //console.log(cards[i].charAt(cards[i].length - 1));
   }
-  if(s>4 || h>4 || c>4 || d>4){
+  if(s>4 || h>4 || c>4 || 4>5){
+    //console.log(s, h, c, d);
     return true;
   }
   else{
@@ -35,3 +46,5 @@ function isAFlush(cards) {
 }
 
 export { isAFlush };
+//console.log(isAFlush(["As", "10s", "Js", "Qs", "Ah", "2s", "3c"]));
+//console.log(isAFlush(["As", "10s", "Js", "Qs", "Ah", "2d", "3c"]));
