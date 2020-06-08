@@ -12,7 +12,6 @@
  */
 function dealer() {
   // CODE HERE
-
   let valeurs = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
   let types = ['d', 'c', 'h', 's'];
   var cards = new Array();
@@ -24,6 +23,7 @@ function dealer() {
       let valeur = valeurs[Math.floor(Math.random() * valeurs.length)];
       let type = types[Math.floor(Math.random() * types.length)];
       let card = valeur + type;
+      //if()
       cards[cards.length]=card;
       cards = removeDuplicates(cards);
     }
@@ -42,6 +42,7 @@ function removeDuplicates(colors) {
   });
   return Object.keys(unique);
 }
+
 
 export { dealer, removeDuplicates };
 //dealer();
