@@ -1,3 +1,5 @@
+import { inArray } from "./inArray";
+
 /*
  * /!\ À faire seul !
  * Le but de cette fonction est de générer deux tableaux contenants 5 cartes différentes
@@ -23,9 +25,13 @@ function dealer() {
       let valeur = valeurs[Math.floor(Math.random() * valeurs.length)];
       let type = types[Math.floor(Math.random() * types.length)];
       let card = valeur + type;
-      //if()
-      cards[cards.length]=card;
-      cards = removeDuplicates(cards);
+      // solution finale
+      if(!inArray(cards, card)){
+        cards[cards.length]=card;
+      }
+      // first solution
+      //cards[cards.length]=card;
+      //cards = removeDuplicates(cards);
     }
     hands[hands.length]=cards;
     //console.log(hands);
