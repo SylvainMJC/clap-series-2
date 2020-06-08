@@ -12,6 +12,19 @@
 
 function isAPair(cards) {
   // CODE HERE
+  for(let i = 0; i<cards.length - 1; i++){
+    for(let j = 0; j<cards.length - 1; j++){
+      if(i!=j){
+        if(cards[i].charAt(cards[i].length - 2)==cards[j].charAt(cards[j].length - 2)){
+          return true;
+        }
+
+      }
+    }
+  }
+  return false;
 }
 
 export { isAPair };
+
+//console.log(isAPair(["As", "10d", "Jd", "Qs", "Ah", "2h", "3c"]));

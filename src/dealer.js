@@ -25,7 +25,7 @@ function dealer() {
       let valeur = valeurs[Math.floor(Math.random() * valeurs.length)];
       let type = types[Math.floor(Math.random() * types.length)];
       let card = valeur + type;
-      // solution finale
+      // solution 2
       if(!inArray(cards, card)){
         cards[cards.length]=card;
       }
