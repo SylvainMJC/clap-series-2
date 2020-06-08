@@ -35,7 +35,7 @@ function isAFlush(cards) {
     }
     //console.log(cards[i].charAt(cards[i].length - 1));
   }
-  if(s>4 || h>4 || c>4 || 4>5){
+  if(s>4 || h>4 || c>4 || d>5){
     //console.log(s, h, c, d);
     return true;
   }

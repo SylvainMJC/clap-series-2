@@ -26,7 +26,21 @@ const CARDS = {
   three: "3",
   two: "2"
 }
-
+const RESULT = {
+  as: 0,
+  king: 0,
+  queen: 0,
+  jack: 0,
+  ten: 0,
+  nine: 0,
+  height: 0,
+  seven: 0,
+  six: 0,
+  five: 0,
+  four: 0,
+  three: 0,
+  two: 0
+}
 function occurences(cards) {
   // CODE HERE
   var nbas, nbking, nbqueen, nbjack, nbten, nbnine, nbeight, nbseven, nbsix, nbfive, nbfour, nbthree, nbtwo = 0;
