@@ -91,6 +91,7 @@ function compareList() {
 //console.log(['A', '7', 'J'].sort(compareList()));
 console.log(['Ks', '3d', '10s', '5c', 'Ah'].sort(compareList()));
 
+// split Ks in an array [K, s]
 
 function orderCards(cards) {
   // CODE HERE

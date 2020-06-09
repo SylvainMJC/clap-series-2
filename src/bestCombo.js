@@ -20,6 +20,31 @@
 
 function bestCombo(cards) {
   // CODE HERE
+
+  /* On check si c'est un full
+    si oui on retourne les 5 cartes en question
+  */
+  
+  /* snon on check si c'est un flush
+    
+  */
+  if(isAFlush(cards)){
+    //si oui on identifie les 5 cartes en question
+    
+  }
+  /* si non on check si c'est une paire
+    si oui on retourne les 5 cartes en question
+  */
+  else if(isAPair(cards)){
+
+  }
+  /* sinon on retourne la hauteur (5 meilleures cartes)
+  */
+  else{
+
+  }
+
+  //
 }
 
 export { bestCombo };

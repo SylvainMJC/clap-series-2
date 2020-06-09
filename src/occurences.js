@@ -134,4 +134,7 @@ function occurences(cards) {
   return CARTES;
 }
 
+//pour éviter 13 IF : Object.keys[plop].filter(key =>[key] >0); FILTRE TOUTES LES CLÉS QUI SONT SUPÉRIEURES À 0.
+
+
 export { occurences };
