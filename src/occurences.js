@@ -11,7 +11,37 @@
  *
  */
 
-import { getCardsValue, nbOccurences } from "../src/functions";
+//import { getCardsValue, nbOccurences } from "../src/functions";
+function getCardsValue(cards) {
+	let cardsValue = [];
+	let value = "";
+	cards.forEach(
+		card => {
+			value = card.charAt(0)
+			if (value == "1"){
+				value = value + "0";
+			}
+			cardsValue.push(value);
+		}
+	)
+	return cardsValue;
+}
+function allIndexOf(arr, value) {
+	if (arr.indexOf(value) >= 0) {
+		let res = [];
+		for( let i = arr.indexOf(value); i >= 0; i = arr.indexOf(value,i+1) ) {
+			res.push(i);
+		}
+		return res;
+	}
+	else return false;
+}
+
+function nbOccurences(arr, value) {
+	let indexes = allIndexOf(arr, value);
+	if (indexes != false) return indexes.length;
+	else return false;
+}
 
 const CARDS = {
 	as: "A",
@@ -140,3 +170,9 @@ function occurences(cards) {
 */
 
 export { occurences };
+/*
+let oc = ["Ad", "7h", "8d", "As", "7s"]
+console.log(oc);
+oc = occurences(oc);
+console.log(oc);
+*/
