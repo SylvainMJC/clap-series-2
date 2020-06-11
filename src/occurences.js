@@ -11,6 +11,38 @@
  *
  */
 
+import { getCardsValue, nbOccurences } from "../src/functions";
+
+const CARDS = {
+	as: "A",
+	king: "K",
+	queen: "Q",
+	jack: "J",
+	ten: "10",
+	nine: "9",
+	eight: "8",
+	seven: "7",
+	six: "6",
+	five: "5",
+	four: "4",
+	three: "3",
+	two: "2"
+  }
+  
+  const  VALUES = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+  
+  function occurences(cards) {
+	  let cardsValue = getCardsValue(cards)
+	  let count = new Object()
+	  let nbOcc = 0
+	  for (let [key, value] of Object.entries(CARDS)) {
+		  nbOcc = nbOccurences(cardsValue, value)
+		  if (nbOcc > 0) count[key] = nbOcc
+	  }
+	  return count
+  
+  }
+/*
 const CARDS = {
   as: "A",
   king: "K",
@@ -135,6 +167,6 @@ function occurences(cards) {
 }
 
 //pour éviter 13 IF : Object.keys[plop].filter(key =>[key] >0); FILTRE TOUTES LES CLÉS QUI SONT SUPÉRIEURES À 0.
-
+*/
 
 export { occurences };

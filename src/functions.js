@@ -28,9 +28,9 @@ function getCardsType(cards) {
 	return cardsType;
 }
 
-
 function isAFull(cards){
 	let occur = occurences(cards)
+	//console.log(occur);
 	let isAThree = false;
 	let isATwo = false;
 	for (let [key, value] of Object.entries(occur)) {
@@ -47,6 +47,8 @@ function isAFull(cards){
 		return true;
 	}
 }
+
+
 
 
 function getHandValue(cards) {
@@ -107,3 +109,5 @@ function nbOccurences(arr, value) {
 }
 
 export { isAFull, getHandValue, getCardsValue, getCardsType, allIndexOf, nbOccurences };
+//let cards1 = ["7s", "7h", "7d", "8s", "8d"];
+//console.log(isAFull(cards1));
