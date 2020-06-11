@@ -19,27 +19,80 @@
  */
 import { isAFlush } from "../src/isAFlush";
 import { isAPair } from "../src/isAPair";
+import { occurences } from "../src/occurences";
+
 import { isAFull, allIndexOf, nbOccurences, getCardsType, getCardsValue } from "../src/functions";
 import {orderCards } from "../src/orderCards";
 
+const CARDS = {
+	as: "A",
+	king: "K",
+	queen: "Q",
+	jack: "J",
+	ten: "10",
+	nine: "9",
+	eight: "8",
+	seven: "7",
+	six: "6",
+	five: "5",
+	four: "4",
+	three: "3",
+	two: "2"
+}
+
+const CARDVALUES =["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
+const CARDTYPES = ["d", "c", "h", "s"];
+
 function bestCombo(cards) {
-  // CODE HERE
+	//console.log(cards);
+	cards = orderCards(cards)
+	let cardsValue = getCardsValue(cards)
+	let cardsType = getCardsType(cards)
+	
+	let hand = []
+	let occur = occurences(cards)
+	//console.log(occur);
+	let isAThree = false
+	let isATwo = false
+	for (let [key, value] of Object.entries(occur)) {
+		if (value == 3 && isAThree == false) {
+			isAThree = true;
+			//console.log("isAThree");
+			for (var i = 0; i < cards.length; i++) {
+				//console.log(cardsValue[i], " = ", CARDS[key], " ?")
 
-  cards = orderCards(cards);
-	let cardsValue = getCardsValue(cards);
-	let cardsType = getCardsType(cards);
+				if (cardsValue[i] == CARDS[key]){
+					hand.push(cards[i]);
+					//console.log("yes");
 
-  /* On check si c'est un full
-    si oui on retourne les 5 cartes en question
-  */
-  
-  /* snon on check si c'est un flush
-    
-  */
-  // Check for a flush
+				}
+			}
+		}
+	}
+	//console.log(occur);
+	//console.log("CARDS = ", CARDS);
+	for (let [key, value] of Object.entries(occur)) {
+		if (value == 2 && isATwo == false) {
+			isATwo = true
+			//console.log("isATwo");
+			for (var i = 0; i < cards.length; i++) {
+				//console.log("key:", key);
+				//console.log(cardsValue[i], " = ", CARDS[key], " ?")
+				if (cardsValue[i] == CARDS[key]){
+					hand.push(cards[i]);
+					//console.log("yes");
+				}
+			}
+		}
+	}
+	if (isAThree && isATwo) {
+		//console.log(hand);
+		return hand;
+	}
+
 	if (isAFlush(cards)) {
-		let hand = []
-		let types = ["d", "c", "h", "s"]
+		let hand = [];
+		let types = CARDTYPES;
 		types.forEach(
 			type => {
 				let nbOcc = nbOccurences(cardsType, type)
@@ -54,15 +107,12 @@ function bestCombo(cards) {
 		)
 		return hand
 	}
-
-	// Check for a pair
 	if (isAPair(cards)) {
-		let hand = []
-		let values = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"]
+		let hand = [];
+		let values = CARDVALUES;
 		values.forEach(
 			value => {
-				let nbOcc = nbOccurences(cardsValue, value)
-				if (nbOcc == 2) {
+				if (nbOccurences(cardsValue, value) == 2) {
 					let indexes = allIndexOf(cardsValue, value)
 					for (let i = 0; i < 2; i++) {
 						hand.push(cards[indexes[i]])
@@ -83,14 +133,13 @@ function bestCombo(cards) {
 		return hand
 	}
 
-	// Check for a hauteur
 	hand = []
 	for (let i = 0; i < 5; i++) {
 		hand.push(cards[i])
 	}
 	return hand
 
-  //
 }
+
 
 export { bestCombo };

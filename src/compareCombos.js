@@ -14,17 +14,23 @@ import { getHandValue } from "../src/functions";
 
 
 function compareCombos(cards1, cards2) {
-	return [cards1, cards2].sort(compare)[0];
+	return [cards1, cards2].sort(tri)[0];
 }
 
-function compare(cards1, cards2) {
+function tri(cards1, cards2) {
 
   console.log('cards1 value: ', getHandValue(cards1));
   console.log('cards2 value ', getHandValue(cards2));
-	if (getHandValue(cards1) > getHandValue(cards2)) return -1
-	else if (getHandValue(cards1) < getHandValue(cards2)) return 1
+	if (getHandValue(cards1) > getHandValue(cards2)){
+		return -1
+	}
+	else if (getHandValue(cards1) < getHandValue(cards2)){
+		return 1;
+	}
 	else {
-		if (getHandValue(cards1) > getHandValue(cards2)) return -1
+		if (getHandValue(cards1) == getHandValue(cards2)){
+			return -1;
+		}
 		else return 1
 	}
 }

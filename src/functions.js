@@ -9,7 +9,9 @@ function getCardsValue(cards) {
 	cards.forEach(
 		card => {
 			value = card.charAt(0)
-			if (value == "1") value = value + "0"
+			if (value == "1"){
+				value = value + "0";
+			}
 			cardsValue.push(value);
 		}
 	)
